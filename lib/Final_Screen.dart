@@ -38,7 +38,7 @@ class FinalScreen extends StatelessWidget {
                 colors: colorizeColors,
               ),
           ],
-          pause: const Duration(milliseconds: 1),
+          pause: const Duration(milliseconds: 100),
               ),
     ),
             SizedBox(

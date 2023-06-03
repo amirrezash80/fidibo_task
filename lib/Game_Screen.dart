@@ -34,7 +34,7 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void startGame() {
-    Timer.periodic(Duration(milliseconds: 20), (timer) {
+    Timer.periodic(Duration(milliseconds: 10), (timer) {
       setState(() {
         updateDirection();
         checkCollisions();
@@ -117,12 +117,12 @@ class _GameScreenState extends State<GameScreen> {
 
     switch (object.type) {
       case ObjectType.Rock:
-        color = Colors.grey;
+        color = Colors.green;
         text = 'Rock';
         iconData = Icons.handshake;
         break;
       case ObjectType.Paper:
-        color = Colors.blue;
+        color = Colors.blueAccent;
         text = 'Paper';
         iconData = Icons.back_hand_rounded;
         break;
@@ -137,9 +137,14 @@ class _GameScreenState extends State<GameScreen> {
       left: object.x,
       top: object.y,
       child: Container(
+       decoration: BoxDecoration(
+         color: color,
+         borderRadius: BorderRadius.all(
+           Radius.circular(10),
+         ),
+       ),
         width: Object_width,
         height: Object_height,
-        color: color,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
